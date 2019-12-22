@@ -28,19 +28,19 @@ $this->title = "My application";
             <label class="control-label" for="pictureform-title">Название</label>
             <input type="text" id="pictureform-title" class="form-control" name="PictureForm[title]" maxlength="255" aria-required="true">
 
-            <div class="help-block"></div>
+            <div class="help-block help-block__pictureform-title"></div>
         </div>
         <div class="form-group field-pictureform-description">
             <label class="control-label" for="pictureform-description">Описание</label>
             <textarea id="pictureform-description" class="form-control" name="PictureForm[description]" rows="6"></textarea>
 
-            <div class="help-block"></div>
+            <div class="help-block help-block__pictureform-description"></div>
         </div>
         <div class="form-group field-pictureform-imagefile">
             <label class="control-label" for="pictureform-imagefile">Image File</label>
             <input type="hidden" name="PictureForm[imageFile]" value=""><input type="file" id="pictureform-imagefile" name="PictureForm[imageFile]">
 
-            <div class="help-block"></div>
+            <div class="help-block help-block__pictureform-imagefile"></div>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-success">Сохранить</button>

@@ -7,6 +7,7 @@ use app\models\ResendVerificationEmailForm;
 use app\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
+use yii\filters\ContentNegotiator;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -16,6 +17,9 @@ use app\models\PasswordResetRequestForm;
 use app\models\ResetPasswordForm;
 use app\models\SignupForm;
 use app\models\PictureForm;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
+use yii\web\UploadedFile;
 
 class SiteController extends Controller
 {
@@ -45,7 +49,17 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
+                    'upload-picture' => ['post'],
                 ],
+            ],
+            'contentNegotiator' => [
+                'class' => ContentNegotiator::className(),
+                'only' => [
+                    'upload-picture',
+                ],
+                'formats' => [
+                    'application/json' => Response::FORMAT_JSON,
+                ]
             ],
         ];
     }
@@ -85,6 +99,24 @@ class SiteController extends Controller
         $model = new PictureForm($picture);
 
         return $this->render('index', ['model' => $model]);
+    }
+
+    public function actionUploadPicture()
+    {
+        $picture = new Picture();
+        $model = new PictureForm($picture);
+
+        if ($model->load(Yii::$app->request->post())) {
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+        }
+
+        $errors = ActiveForm::validate($model);
+
+        if (!$errors) {
+            $model->save();
+        }
+
+        return $errors;
     }
 
     /**

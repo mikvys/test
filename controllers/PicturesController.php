@@ -6,15 +6,10 @@ use app\models\PictureForm;
 use Yii;
 use app\models\Picture;
 use app\models\PictureSearch;
-use yii\helpers\Json;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
-use yii\filters\ContentNegotiator;
-use yii\web\Response;
-use yii\widgets\ActiveForm;
-use yii\filters\AccessControl;
 
 /**
  * PicturesController implements the CRUD actions for Picture model.
@@ -31,17 +26,7 @@ class PicturesController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
-                    'create' => ['POST'],
                 ],
-            ],
-            'contentNegotiator' => [
-                'class' => ContentNegotiator::className(),
-                'only' => [
-                    'create',
-                ],
-                'formats' => [
-                    'application/json' => Response::FORMAT_JSON,
-                ]
             ],
         ];
     }
@@ -92,17 +77,16 @@ class PicturesController extends Controller
         $picture = new Picture();
         $model = new PictureForm($picture);
 
-        if ($model->load(Yii::$app->request->post())) {
+        if($model->load(Yii::$app->request->post())) {
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $picture->id]);
+            }
         }
 
-        $errors = ActiveForm::validate($model);
-
-        if (!$errors) {
-            $model->save();
-        }
-
-        return $errors;
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -117,8 +101,11 @@ class PicturesController extends Controller
         $picture = $this->findModel($id);
         $model = new PictureForm($picture);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $picture->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $picture->id]);f
+            }
         }
 
         return $this->render('update', [
