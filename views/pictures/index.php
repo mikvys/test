@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use himiklab\colorbox\Colorbox;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\PictureSearch */
@@ -10,6 +11,17 @@ use yii\grid\GridView;
 $this->title = 'Загруженные картинки';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+<?= Colorbox::widget([
+    'targets' => [
+        '.colorbox' => [
+            'maxWidth' => 800,
+            'maxHeight' => 600,
+        ],
+    ],
+    'coreStyle' => 1
+]) ?>
+
 <div class="picture-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -31,9 +43,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             [
                 'attribute'=>'path',
-                'format' => ['image',['width'=>'100']],
+                'format' => 'raw',
                 'value' => function($model) {
-                    return '../'.$model->path;
+                    return '<a href="../'. $model->path .'" class="colorbox">'. Html::img('../' . $model->path, ['width' => '100', 'class' => 'colorbox']) .'</a>';
                 }
             ],
             [

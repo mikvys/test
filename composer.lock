@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb66231ccd835040d10dff19eca54927",
+    "content-hash": "d724e455310ffc9d48c0ac841280ee54",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -65,6 +65,24 @@
             "license": [
                 "MIT"
             ]
+        },
+        {
+            "name": "bower-asset/jquery-colorbox",
+            "version": "1.6.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:jackmoore/colorbox.git",
+                "reference": "bac78120c6ca9e63370cc317ab6f400129cd6608"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jackmoore/colorbox/zipball/bac78120c6ca9e63370cc317ab6f400129cd6608",
+                "reference": "bac78120c6ca9e63370cc317ab6f400129cd6608"
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.3.2"
+            },
+            "type": "bower-asset"
         },
         {
             "name": "bower-asset/punycode",
@@ -226,16 +244,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.11",
+            "version": "2.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "92dd169c32f6f55ba570c309d83f5209cefb5e23"
+                "reference": "a6255605af39f2db7f5cb62e672bd8a7bad8d208"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/92dd169c32f6f55ba570c309d83f5209cefb5e23",
-                "reference": "92dd169c32f6f55ba570c309d83f5209cefb5e23",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/a6255605af39f2db7f5cb62e672bd8a7bad8d208",
+                "reference": "a6255605af39f2db7f5cb62e672bd8a7bad8d208",
                 "shasum": ""
             },
             "require": {
@@ -280,7 +298,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2019-08-13T17:33:27+00:00"
+            "time": "2019-12-20T12:49:39+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -328,6 +346,49 @@
                 "html"
             ],
             "time": "2019-10-28T03:44:26+00:00"
+        },
+        {
+            "name": "himiklab/yii2-colorbox-widget",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/himiklab/yii2-colorbox-widget.git",
+                "reference": "c4aee292cdeabe03e996eb4396719376c2252602"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/himiklab/yii2-colorbox-widget/zipball/c4aee292cdeabe03e996eb4396719376c2252602",
+                "reference": "c4aee292cdeabe03e996eb4396719376c2252602",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery-colorbox": "*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "himiklab\\colorbox\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "HimikLab",
+                    "homepage": "https://github.com/himiklab/"
+                }
+            ],
+            "description": "Customizable lightbox widget for Yii2",
+            "keywords": [
+                "colorbox",
+                "lightbox",
+                "widget",
+                "yii2"
+            ],
+            "time": "2016-02-02T10:23:58+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -632,12 +693,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "b9fa3d184b41fb847aa7ae8b447d59b243c72d45"
+                "reference": "0329b2db8bbf9719b1add17d6defd2d6045b4f09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/b9fa3d184b41fb847aa7ae8b447d59b243c72d45",
-                "reference": "b9fa3d184b41fb847aa7ae8b447d59b243c72d45",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/0329b2db8bbf9719b1add17d6defd2d6045b4f09",
+                "reference": "0329b2db8bbf9719b1add17d6defd2d6045b4f09",
                 "shasum": ""
             },
             "require": {
@@ -961,18 +1022,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "03d7e33c155bf9da306f0209d520fb8423f6dd67"
+                "reference": "65bb6f8248000d7b8a3e2e98b7a6da6248096b78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/03d7e33c155bf9da306f0209d520fb8423f6dd67",
-                "reference": "03d7e33c155bf9da306f0209d520fb8423f6dd67",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/65bb6f8248000d7b8a3e2e98b7a6da6248096b78",
+                "reference": "65bb6f8248000d7b8a3e2e98b7a6da6248096b78",
                 "shasum": ""
             },
             "require": {
                 "behat/gherkin": "^4.4.0",
                 "codeception/lib-asserts": "^1.0",
-                "codeception/phpunit-wrapper": ">6.0.15 <6.1.0 | ^6.6.1 | ^7.7.1 | ^8.1.0",
+                "codeception/phpunit-wrapper": ">6.0.15 <6.1.0 | ^6.6.1 | ^7.7.1 | ^8.1.1",
                 "codeception/stub": "^2.0 | ^3.0",
                 "ext-curl": "*",
                 "ext-json": "*",
@@ -1038,7 +1099,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2019-12-19T16:52:50+00:00"
+            "time": "2019-12-21T16:22:15+00:00"
         },
         {
             "name": "codeception/lib-asserts",
@@ -1294,16 +1355,16 @@
         },
         {
             "name": "codeception/phpunit-wrapper",
-            "version": "8.1.0",
+            "version": "8.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/phpunit-wrapper.git",
-                "reference": "ee0c1fa08ef6e7f86e3592eccb57139110e5913d"
+                "reference": "f1370a15e5fe60e7347b1c60642479b923a7ceef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/ee0c1fa08ef6e7f86e3592eccb57139110e5913d",
-                "reference": "ee0c1fa08ef6e7f86e3592eccb57139110e5913d",
+                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/f1370a15e5fe60e7347b1c60642479b923a7ceef",
+                "reference": "f1370a15e5fe60e7347b1c60642479b923a7ceef",
                 "shasum": ""
             },
             "require": {
@@ -1334,7 +1395,7 @@
                 }
             ],
             "description": "PHPUnit classes used by Codeception",
-            "time": "2019-11-24T15:30:35+00:00"
+            "time": "2019-12-21T16:08:14+00:00"
         },
         {
             "name": "codeception/specify",
@@ -1889,16 +1950,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "4.3.2",
+            "version": "4.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "b83ff7cfcfee7827e1e78b637a5904fe6a96698e"
+                "reference": "2ecaa9fef01634c83bfa8dc1fe35fb5cef223a62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/b83ff7cfcfee7827e1e78b637a5904fe6a96698e",
-                "reference": "b83ff7cfcfee7827e1e78b637a5904fe6a96698e",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/2ecaa9fef01634c83bfa8dc1fe35fb5cef223a62",
+                "reference": "2ecaa9fef01634c83bfa8dc1fe35fb5cef223a62",
                 "shasum": ""
             },
             "require": {
@@ -1936,7 +1997,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2019-09-12T14:27:41+00:00"
+            "time": "2019-12-20T13:40:23+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
