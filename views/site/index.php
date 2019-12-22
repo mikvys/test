@@ -37,7 +37,7 @@ $this->title = "My application";
             <div class="help-block help-block__pictureform-description"></div>
         </div>
         <div class="form-group field-pictureform-imagefile">
-            <label class="control-label" for="pictureform-imagefile">Image File</label>
+            <label class="control-label" for="pictureform-imagefile">Изображение</label>
             <input type="hidden" name="PictureForm[imageFile]" value=""><input type="file" id="pictureform-imagefile" name="PictureForm[imageFile]">
 
             <div class="help-block help-block__pictureform-imagefile"></div>

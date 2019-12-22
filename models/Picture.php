@@ -51,6 +51,7 @@ class Picture extends \yii\db\ActiveRecord
             'description' => 'Описание',
             'path' => 'Изображение',
             'user_id' => 'Пользователь',
+            'imageFile' => 'Изображение',
         ];
     }
 

@@ -79,6 +79,7 @@ class PictureForm extends Model
             'description' => 'Описание',
             'path' => 'Изображение',
             'user_id' => 'Пользователь',
+            'imageFile' => 'Изображение',
         ];
     }
 

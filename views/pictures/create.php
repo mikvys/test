@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Picture */
 
-$this->title = 'Create Picture';
-$this->params['breadcrumbs'][] = ['label' => 'Pictures', 'url' => ['index']];
+$this->title = 'Загрузить картинку';
+$this->params['breadcrumbs'][] = ['label' => 'Картинки', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="picture-create">
