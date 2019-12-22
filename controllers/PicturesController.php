@@ -6,6 +6,7 @@ use app\models\PictureForm;
 use Yii;
 use app\models\Picture;
 use app\models\PictureSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -22,6 +23,15 @@ class PicturesController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -29,14 +39,6 @@ class PicturesController extends Controller
                 ],
             ],
         ];
-    }
-
-    public function beforeAction($action)
-    {
-        if ($action->id === 'create') {
-            $this->enableCsrfValidation = false;
-        }
-        return parent::beforeAction($action);
     }
 
     /**
@@ -104,7 +106,7 @@ class PicturesController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             if ($model->save()) {
-                return $this->redirect(['view', 'id' => $picture->id]);f
+                return $this->redirect(['view', 'id' => $picture->id]);
             }
         }
 

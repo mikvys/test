@@ -31,15 +31,15 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'only' => ['login', 'logout', 'signup', 'index', 'upload-picture'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
+                        'actions' => ['login','signup'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'index', 'upload-picture'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -82,7 +82,7 @@ class SiteController extends Controller
 
     public function beforeAction($action)
     {
-        if ($action->id === 'index') {
+        if ($action->id === 'update-picture') {
             $this->enableCsrfValidation = false;
         }
         return parent::beforeAction($action);
@@ -101,6 +101,10 @@ class SiteController extends Controller
         return $this->render('index', ['model' => $model]);
     }
 
+    /**
+     * @return array
+     * @throws \Exception
+     */
     public function actionUploadPicture()
     {
         $picture = new Picture();
