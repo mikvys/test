@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Picture;
 use app\models\ResendVerificationEmailForm;
 use app\models\VerifyEmailForm;
 use Yii;
@@ -14,7 +15,7 @@ use app\models\LoginForm;
 use app\models\PasswordResetRequestForm;
 use app\models\ResetPasswordForm;
 use app\models\SignupForm;
-use app\models\ContactForm;
+use app\models\PictureForm;
 
 class SiteController extends Controller
 {
@@ -65,6 +66,14 @@ class SiteController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        if ($action->id === 'index') {
+            $this->enableCsrfValidation = false;
+        }
+        return parent::beforeAction($action);
+    }
+
     /**
      * Displays homepage.
      *
@@ -72,7 +81,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $picture = new Picture();
+        $model = new PictureForm($picture);
+
+        return $this->render('index', ['model' => $model]);
     }
 
     /**
@@ -107,34 +119,6 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
-    }
-
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
     }
 
     /**

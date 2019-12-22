@@ -31,6 +31,6 @@ class m191220_072139_users_new_table_creation extends Migration
 
     public function down()
     {
-        $this->dropTable('users');
+        $this->dropTable('{{%user}}');
     }
 }

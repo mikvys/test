@@ -1,53 +1,50 @@
 <?php
 
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use yii\bootstrap\Alert;
+
 /* @var $this yii\web\View */
+/* @var $model app\models\Picture */
+/* @var $form yii\widgets\ActiveForm */
 
-$this->title = 'My Yii Application';
+$this->title = "My application";
 ?>
-<div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
+<div class="picture-form">
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+    <?= Alert::widget([
+        'options' => [
+            'class' => 'add-picture-success-message alert alert-success',
+            'style' => 'display: none',
+        ],
+        'body' => 'Картинка успешно сохранена.',
+    ]); ?>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
+    <h2>Загрузка картинок</h2>
 
-    <div class="body-content">
+    <form id="add-picture-form" name="add-picture-form" action="/pictures/create" method="POST" enctype="multipart/form-data">
+        <div class="form-group field-pictureform-title required">
+            <label class="control-label" for="pictureform-title">Название</label>
+            <input type="text" id="pictureform-title" class="form-control" name="PictureForm[title]" maxlength="255" aria-required="true">
 
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
+            <div class="help-block"></div>
         </div>
+        <div class="form-group field-pictureform-description">
+            <label class="control-label" for="pictureform-description">Описание</label>
+            <textarea id="pictureform-description" class="form-control" name="PictureForm[description]" rows="6"></textarea>
 
-    </div>
+            <div class="help-block"></div>
+        </div>
+        <div class="form-group field-pictureform-imagefile">
+            <label class="control-label" for="pictureform-imagefile">Image File</label>
+            <input type="hidden" name="PictureForm[imageFile]" value=""><input type="file" id="pictureform-imagefile" name="PictureForm[imageFile]">
+
+            <div class="help-block"></div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Сохранить</button>
+        </div>
+    </form>
 </div>
+
